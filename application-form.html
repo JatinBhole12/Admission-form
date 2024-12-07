@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="stylesheet" href="application-form.css">
+    <style>
+        #photo-container {
+            position: absolute;
+            top: 110px;
+            right: 400px;
+            width: 110px; /* increased by 10% */
+            height: 110px; /* increased by 10% */
+            border: 1px solid #ccc;
+            overflow: hidden;
+        
+        }
+        .back-button {
+            position: absolute; /* Positioning the back button */
+            top: 10px; /* Adjusted to move higher */
+            left: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 32px;
+             padding: 10px;
+            color: black; /* Color of the arrow */
+        }
+        
+        #photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+    </style>
+</head>
+<body>
+    <body>
+        <button class="back-button" onclick="goBack()">&#8592;</button>
+    
+        <script>
+            function goBack() {
+                window.location.href = 'jj.html'; // Change 'jj.html' to the path of your HTML file
+            }
+        </script>
+    <header>
+        <h1>Application Form</h1>
+    </header>
+    <main>
+         <!-- Passport Size Photo -->
+                <div style="position: absolute; top: 10px; right: 10px;">
+                    <div id="photo-container">
+                        <img id="passport-photo" src="" alt="Passport Size Photo" style="display: none; width: 150px; height: 200px; object-fit: cover; border: 1px solid #ccc;">
+                        <input type="file" id="photo-input" name="photo" accept="image/*" style="display: none;">
+                        <label for="photo-input" style="cursor: pointer; display: inline-block; padding: 10px; background: #007bff; color: white; border-radius: 5px;">Upload Photo</label>
+                        <button id="remove-photo" style="display: none; margin-left: 10px; padding: 10px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Remove Photo</button>
+                    </div>
+                </div>
+        <form id="app-form">
+            <section class="form-section">
+                <h2>Personal Details</h2>
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="middle-name">Middle Name:</label>
+                    <input type="text" id="middle-name" name="middle-name">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="father-name">Father's Name:</label>
+                    <input type="text" id="father-name" name="father-name">
+                </div>
+                <div class="form-group">
+                    <label for="mother-name">Mother's Name:</label>
+                    <input type="text" id="mother-name" name="mother-name">
+                </div>
+                <div class="form-group">
+                    <label for="aadhaar-no">Aadhaar Number:</label>
+                    <input type="number" id="aadhaar-no" name="aadhaar-no" required minlength="12" maxlength="12">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="caste">Caste:</label>
+                    <input type="text" id="caste" name="caste">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select Category</option>
+                        <option value="General">General</option>
+                        <option value="SC">SC</option>
+                        <option value="ST">ST</option>
+                        <option value="OBC">OBC</option>
+                    </select>
+                </div>
+                </div>
+               
+            </section>
+            
+            <!-- Contact Details Section -->
+            <section class="form-section">
+                <h2>Contact Details</h2>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </section>
+               <!-- Address Section -->
+               <section class="form-section">
+                <h2>Address</h2>
+                <div class="form-group">
+                    <label for="address-line-1">Address</label>
+                    <input type="text" id="address-line-1" name="address-line-1" required>
+                </div>
+            
+            <!-- Academic Details Section -->
+            <section class="form-section">
+                <h2>Academic Details</h2>
+                <div class="form-group">
+                    <label for="10th-marks">10th Marks:</label>
+                    <input type="number" id="10th-marks" name="10th-marks" required>
+                </div>
+                <div class="form-group">
+                    <label for="12th-marks">12th / Polytechnic Marks:</label>
+                    <input type="number" id="12th-marks" name="12th-marks" required>
+                </div>
+               
+<!-- Academic Details Section -->
+<section class="form-section">
+    <h2>Engg Fields Details</h2>
+    <div class="form-group">
+        <label for="course">Course:</label>
+            <select id="course" name="course" onchange="showCourseOptions(this.value)">
+                <option value="">Select Course</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="MBA">MBA</option>
+            </select>
+    </div>
+    <div class="form-group">
+        <label for="course-option">Course Option:</label>
+        <select id="course-option" name="course-option">
+            <option value="">Select Course</option>
+            <option value="B.Tech">Computer Science and Engineering</option>
+            <option value="M.Tech">Artificial inteligence & Data Science</option>
+            <option value="M.Tech">Mechanical Engineering</option>
+            <option value="M.Tech">Electrical Engineering</option>
+            <option value="M.Tech">Electronics & Tele-Communication Engineering</option>
+            <option value="M.Tech">Civil Engineering</option>
+        </select>
+    </div>
+    <div id="course-info-container">
+        <input type="text" id="course-info" name="course-info" readonly>
+    </div>
+</section>
+
+<script>
+    document.getElementById('photo-input').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            const img = document.getElementById('passport-photo');
+            img.src = e.target.result;
+            img.style.display = 'block'; // Show the image after loading
+            document.getElementById('remove-photo').style.display = 'inline-block'; // Show the remove button
+        }
+        
+        reader.readAsDataURL(file);
+    }
+});
+
+document.getElementById('remove-photo').addEventListener('click', function() {
+    const img = document.getElementById('passport-photo');
+    img.src = ''; // Clear the image source
+    img.style.display = 'none'; // Hide the image
+    document.getElementById('photo-input').value = ''; // Clear the file input
+    this.style.display = 'none'; // Hide the remove button
+});
+    function showCourseOptions(course) {
+        const courseOptionSelect = document.getElementById('course-option');
+        courseOptionSelect.innerHTML = '';
+
+        if (course === 'B.Tech') {
+            const options = [
+                { value: 'CSE', text: 'Computer Science and Engineering' },
+                { value: 'ECE', text: 'Electronics and Communication Engineering' },
+                { value: 'ME', text: 'Mechanical Engineering' },
+                { value: 'EE', text: 'Electrical Engineering'},
+                { value: 'AI&DS', text: 'Artificial Intellegence & Data Science'},
+            ];
+
+            options.forEach((option) => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option.value;
+                optionElement.text = option.text;
+                courseOptionSelect.appendChild(optionElement);
+            });
+        } else if (course === 'M.Tech') {
+            const options = [
+                { value: 'CSE', text: 'Computer Science and Engineering' },
+                { value: 'ECE', text: 'Electronics and Communication Engineering' },
+            ];
+
+            options.forEach((option) => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option.value;
+                optionElement.text = option.text;
+                courseOptionSelect.appendChild(optionElement);
+            });
+        } else if (course === 'MBA') {
+            const options = [
+                { value: 'Finance', text: 'Finance' },
+                { value: 'Marketing', text: 'Marketing' },
+                { value: 'HR', text: 'Human Resources' },
+            ];
+
+            options.forEach((option) => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option.value;
+                optionElement.text = option.text;
+                courseOptionSelect.appendChild(optionElement);
+            });
+        }
+    }
+
+    document.getElementById('course-option').addEventListener('change', function() {
+        const course = document.getElementById('course').value;
+        const courseOption = document.getElementById('course-option').value;
+        const courseInfo = `${course} - ${courseOption}`;
+        document.getElementById('course-info').value = courseInfo;
+    });
+</script>
+</script>
+
+                <div id="department-container"></div>
+            </section>
+            
+              
+                    <section class="form-section">
+                        <h2>Document Verification</h2>
+                        <div class="form-group">
+                            <label for="Marksheet">Upload 10 Marksheet:</label>
+                            <input type="file" id="Marksheet" name="Marksheet" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Marksheet">Upload 12/Diploma Marksheet:</label>
+                            <input type="file" id="Marksheet" name="Marksheet" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-proof">Address Proof:</label>
+                            <input type="file" id="address-proof" name="address-proof" required>
+                        </div>
+                    </section>
+                    <h2>Residence</h2>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="India">India</option>
+                            <!-- other country options -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="district">District:</label>
+                        <select id="district" name="district" required>
+                            <option value="">Select District</option>
+                            <option value="Ahmednagar">Ahmednagar</option>
+                            <option value="Akola">Akola</option>
+                            <option value="Amravati">Amravati</option>
+                            <option value="Aurangabad">Aurangabad</option>
+                            <option value="Beed">Beed</option>
+                            <option value="Bhandara">Bhandara</option>
+                            <option value="Buldhana">Buldhana</option>
+                            <option value="Chandrapur">Chandrapur</option>
+                            <option value="Dhule">Dhule</option>
+                            <option value="Gadchiroli">Gadchiroli</option>
+                            <option value="Gondia">Gondia</option>
+                            <option value="Hingoli">Hingoli</option>
+                            <option value="Jalgaon">Jalgaon</option>
+                            <option value="Jalna">Jalna</option>
+                            <option value="Kolhapur">Kolhapur</option>
+                            <option value="Latur">Latur</option>
+                            <option value="Mumbai City">Mumbai City</option>
+                            <option value="Mumbai Suburban">Mumbai Suburban</option>
+                            <option value="Nagpur">Nagpur</option>
+                            <option value="Nanded">Nanded</option>
+                            <option value="Nandurbar">Nandurbar</option>
+                            <option value="Nashik">Nashik</option>
+                            <option value="Osmanabad">Osmanabad</option>
+                            <option value="Palghar">Palghar</option>
+                            <option value="Parbhani">Parbhani</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Raigad">Raigad</option>
+                            <option value="Ratnagiri">Ratnagiri</option>
+                            <option value="Sangli">Sangli</option>
+                            <option value="Satara">Satara</option>
+                            <option value="Sindhudurg">Sindhudurg</option>
+                            <option value="Solapur">Solapur</option>
+                            <option value="Thane">Thane</option>
+                            <option value="Wardha">Wardha</option>
+                            <option value="Washim">Washim</option>
+                            <option value="Yavatmal">Yavatmal</option>
+                        </select>
+                    </div>
+                </section>
+                
+                    
+
+                   
+                
+
+                <div>
+                    <h2>Declaration</h2>
+                    <p><h4>I declare that the information provided above is true and correct to the best of my knowledge.</h4></p>
+                    <input type="checkbox" id="declaration" name="declaration" required>
+                    <label for="declaration">I agree to the above declaration.</label>
+                </div>
+
+<main>
+    <form id="app-form">
+        <!-- ... (rest of the form remains the same) ... -->
+        <button onclick="validateDeclaration()">Go to Next Page</button>
+    </form>
+</main>
+
+<script>
+    function validateDeclaration() {
+        const declarationCheckbox = document.getElementById('declaration');
+        if (!declarationCheckbox.checked) {
+            alert('Please agree to the declaration before proceeding.');
+            return false;
+        }
+        
+
+        // if the checkbox is checked, allow the user to proceed to the next page
+        location.href = 'fees.html';
+    }
+</script>
+          
+        <script src="application-form.js"></script>
+    </body>
+    </html>
+           

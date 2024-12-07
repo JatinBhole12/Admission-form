@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Management</title>
+    <link rel="stylesheet" href="fees.css">
+</head>
+<body>
+    <header>
+        <h1>Fees Management</h1>
+    </header>
+    <main>
+        <form id="fees-form">
+            <section class="form-section">
+                <h2>Fees Details</h2>
+                <div class="form-group">
+                    <label for="fees-type">Fees Type:</label>
+                    <select id="fees-type" name="fees-type" required>
+                        <option value="">Select Fees Type</option>
+                        <option value="Admission Fees">Admission Fees</option>
+                        <option value="Tuition Fees">Tuition Fees</option>
+                        <option value="Exam Fees">Exam Fees</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fees-amount">Fees Amount:</label>
+                    <input type="number" id="fees-amount" name="fees-amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-mode">Payment Mode:</label>
+                    <select id="payment-mode" name="payment-mode" required>
+                        <option value="">Select Payment Mode</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Online">Online</option>
+                        <option value="Cheque">Cheque</option>
+                    </select>
+                </div>
+                <button type="button" id="pay-btn" onclick="payFees()">Pay Fees</button>            </section>
+            
+        </form>
+    </main>
+    <script>
+        function payFees() {
+            window.location.href = 'payment.html'; // Change 'payment.html' to the path of your HTML file
+        }
+    </script>
+    <script src="fees.js"></script>
+</body>
+</html>

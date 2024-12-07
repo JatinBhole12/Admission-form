@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Payment Gateway Form</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: cornflowerblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .back-button {
+            position: absolute; /* Positioning the back button */
+            top: 10px; /* Adjusted to move higher */
+            left: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 32px;
+             padding: 10px;
+            color: white; /* Color of the arrow */
+        }
+
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: cornflowerblue;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .card-logos {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .card-logo {
+            width: 50px;
+        }
+
+        .button {
+            background-color: cornflowerblue;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease }
+
+        .button:hover {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">&#8592;</button>
+
+    <script>
+        function goBack() {
+            window.location.href = 'fees.html'; // Change 'jj.html' to the path of your HTML file
+        }
+    </script>
+    <div class="container">
+        <div class="billing-address">
+            <h2>PAYMENT GATEWAY</h2>
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" placeholder="John Deo">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Example@Example.Com">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="Room - Street - Locality">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" placeholder="Mumbai">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" placeholder="Mahrashtra">
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" placeholder="India">
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip Code:</label>
+                <input type="text" id="zip" placeholder="123 456">
+            </div>
+        </div>
+
+        <div class="payment">
+            <h2>PAYMENT</h2>
+            <div class="accepted-cards">
+                <div class="card-logos">
+                        <img src="visa.png" alt="Visa" class="card-logo">
+                    <a href="https://www.rupay.co.in/">
+                    <img src="rupey.png" alt="Rupey" class="card-logo">
+                </a>
+                    <a href="https://payments.google.com/gp/w/u/0/home/paymentmethods?sctid=7853942976669961">
+                    <img src="google.png" alt="Google Pay" class="card-logo">
+                </a>
+                <a href="https://www.phonepe.com/">
+                    <img src="phone.webp" alt="PhonePe" class="card-logo">
+                    </a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nameoncard">Name on Card:</label>
+                <input type="text" id="nameoncard" placeholder="John Deo">
+            </div>
+            <div class="form-group">
+                <label for="cardNumber">Card Number:</label>
+                <input type="number" id="cardNumber" placeholder="1234 5678 9012 3456">
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="number" id="cvv" placeholder="123">
+            </div>
+            <button class="button" onclick="submitForm()">Pay Now</button>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            alert("Payment submitted successfully!");
+        }
+    </script>
+</body>
+</html>
